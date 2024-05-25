@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import HomeProduct from '../HomeProduct/HomeProduct';
 
 const Products = () => {
     const [smartphones, setSmartphones] = useState([]);
@@ -38,39 +39,18 @@ const Products = () => {
 
     console.log(smartphones.slice(0, 4));
     return (
-        <div className="p-4 flex flex-wrap gap-4">
+        <div className="p-4 flex flex-wrap gap-4 mt-14">
             <h1 className="text-2xl font-bold mb-4">Smart Phones</h1>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                {smartphones.slice(0, 4).map(product => (
-                    <div key={product.id} className="border p-4 rounded-lg" onClick={() => navigation(`/products/${product.id}`)}>
-                        <img src={product.thumbnail} alt={product.title} className="w-full h-48 object-cover mb-2" />
-                        <h3 className="text-lg font-bold">{product.title}</h3>
-                        <p className="text-gray-700">{product.description}</p>
-                        <p className="text-gray-900 font-bold">${product.price}</p>
-                    </div>
-                ))}
+                {smartphones.slice(0, 4).map(product => (<HomeProduct key={product.id} product={product} />))}
             </div>
             <h1 className="text-2xl font-bold mb-4">Laptops</h1>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                {laptops.slice(0, 4).map(product => (
-                    <div key={product.id} className="border p-4 rounded-lg" onClick={() => navigation(`/products/${product.id}`)}>
-                        <img src={product.thumbnail} alt={product.title} className="w-full h-48 object-cover mb-2" />
-                        <h3 className="text-lg font-bold">{product.title}</h3>
-                        <p className="text-gray-700">{product.description}</p>
-                        <p className="text-gray-900 font-bold">${product.price}</p>
-                    </div>
-                ))}
+                {laptops.slice(0, 4).map(product => (<HomeProduct key={product.id} product={product} />))}
             </div>
             <h1 className="text-2xl font-bold mb-4">Motorcycle</h1>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                {groceries.slice(0, 4).map(product => (
-                    <div key={product.id} className="border p-4 rounded-lg" onClick={() => navigation(`/products/${product.id}`)}>
-                        <img src={product.thumbnail} alt={product.title} className="w-full h-48 object-cover mb-2" />
-                        <h3 className="text-lg font-bold">{product.title}</h3>
-                        <p className="text-gray-700">{product.description}</p>
-                        <p className="text-gray-900 font-bold">${product.price}</p>
-                    </div>
-                ))}
+                {groceries.slice(0, 4).map(product => (<HomeProduct key={product.id} product={product} />))}
             </div>
         </div>
     );

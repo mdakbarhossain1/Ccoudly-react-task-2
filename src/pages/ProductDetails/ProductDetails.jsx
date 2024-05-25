@@ -32,15 +32,20 @@ const ProductDetails = () => {
 
 
     const detailsImages = detailsProduct;
-    const detailImage = detailsImages.images;
-    console.log(detailImage, "hi");
+    const detailImage = detailsImages.images ;
+    console.log(detailImage?.length );
     // if (!detailsProduct) return <div>Loading...</div>;
     return (
-        <div className="p-4">
+        <div className="p-4 mt-14">
             <div className="flex flex-col md:flex-row gap-4">
                 <div className="w-full md:w-1/2">
                     <div className="flex flex-col space-y-4">
-                        <div className="slider-container p-2">
+                        {
+                          detailImage?.length === 1? <div>
+                            <img src={detailImage[0]} alt="Product Images"  width={500} />
+                            <hr />
+                            <img src={detailImage[0]} alt="Product Images"  width={100}/>
+                          </div>  : <div className="slider-container p-2">
                             <Slider asNavFor={nav2} ref={slider => (sliderRef1 = slider)}>
                                 {
                                     detailImage?.map((image) => <div key={image}>
@@ -64,6 +69,8 @@ const ProductDetails = () => {
 
                             </Slider>
                         </div>
+                        }
+                        
                     </div>
                 </div>
                 <div className="w-full md:w-1/2">
@@ -74,8 +81,15 @@ const ProductDetails = () => {
                     <button className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Add to Cart</button>
                 </div>
             </div>
+
+            <div className="my-3">
+                <h1 className="text-2xl font-bold">Product Description</h1>
+                <p className="mb-4">{detailsProduct.description}</p>
+
+            </div>
             {/* <RelatedProducts /> */}
-            <RelatedProducts categories = {detailsProduct.category}/>
+            <h1 className="text-2xl font-bold mb-2">Related Products</h1>
+            <RelatedProducts categories={detailsProduct.category} />
 
         </div>
     )
