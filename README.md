@@ -1,8 +1,8 @@
 # API Integrating React JS
 
 ## Project Links
-- **GitHub Repository**: [https://github.com/mdakbarhossain1/Ccoudly-react-task-2]()
-- **Live Link**: [https://cloudly-job-task-react-api.netlify.app/]()
+- **GitHub Repository**: [https://github.com/mdakbarhossain1/Ccoudly-react-task-2](https://github.com/mdakbarhossain1/Ccoudly-react-task-2)
+- **Live Link**: [https://cloudly-job-task-react-api.netlify.app/](https://cloudly-job-task-react-api.netlify.app/)
 
 ## API Endpoints
 - **API Documentation**: [https://dummyjson.com/](https://dummyjson.com/)
